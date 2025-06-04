@@ -1,0 +1,36 @@
+<div class="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
+    <div class="lg:flex-row flex-col    lg:py-5   pt-16   lg:gap-10 gap-8 flex justify-between items-center">
+        <div class="flex-1">
+            <h1 class="font-bold font-roboto text-slate-800 md:text-5xl text-3xl md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full">
+                Linklytics Simplifies Url shortning for Efficient Sharing
+            </h1>
+            <p class="text-slate-700 text-sm my-5">
+                Linklytics streamlines the process of URL shortening, making sharing
+            links effortless and efficient. With its user-friendly interface,
+            Linklytics allows you to generate concise, easy-to-share URLs in
+            seconds. Simplify your sharing experience with Linklytics today.
+            </p>
+            <div class="flex items-center gap-3">
+                <button class="custom-gradient w-40 text-white rounded-md py-2" style="cursor: pointer;">
+                    Manage Links
+                </button>
+                <button class="border-btnColor border w-40 text-btnColor rounded-md py-2" style="cursor: pointer;">
+                    Create Short Link
+                </button>
+            </div>
+        </div>
+        <div class="flex-1 flex justify-center w-full">
+            <img clas="sm:w-[480px] w-[400px] object-cover rounded-md" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNk8xpybPGdUEep4M91E5PxYnSasHK9AoYiQ&s" alt="">
+        </div>
+    </div>
+    <div class="sm:pt-12 pt-7">
+        <p class="text-slate-800 font-roboto font-bold lg:w-[60%] md:w-[70%] sm:w-[80%] mx-auto text-3xl text-center">
+            Trusted by individuals and teams at the world leading companies.
+        </p>
+        <div class="pt-4 pb-7 grid lg:gap-7 gap-4 xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-4">
+            @for (item of details; track $index) {
+                <app-card [title]="item.title" [description]="item.desc"></app-card>
+            }
+        </div>
+    </div>
+</div>

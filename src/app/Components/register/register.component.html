@@ -1,0 +1,80 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-600 p-4 font-sans">
+    <div class="bg-white p-8 rounded-xl custom-shadow w-full max-w-md">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Register Here</h2>
+
+      
+
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <div>
+          <label htmlFor="username" class="block text-sm font-medium text-gray-700 mb-1">
+            Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            class="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            [ngClass]="{'border-error': registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched, 'border-gray-300': !(registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched)}"
+            placeholder="Enter your username"
+          />
+          <div *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched" class="mt-1 text-sm text-error">
+            <p *ngIf="registrationForm.get('username')?.errors?.['required']">Username is required.</p>
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="email" class="block text-sm font-medium text-gray-700 mb-1">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            [ngClass]="{'border-error': registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched, 'border-gray-300': !(registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched)}"
+            placeholder="Enter your email"
+          />
+          <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="mt-1 text-sm text-error">
+            <p *ngIf="registrationForm.get('email')?.errors?.['required']">Email is required.</p>
+            <p *ngIf="registrationForm.get('email')?.errors?.['email']">Email address is invalid.</p>
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="password" class="block text-sm font-medium text-gray-700 mb-1">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            [ngClass]="{'border-error': registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched, 'border-gray-300': !(registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched)}"
+            placeholder="Enter your password"
+          />
+          <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="mt-1 text-sm text-error">
+            <p *ngIf="registrationForm.get('password')?.errors?.['required']">Password is required.</p>
+            <p *ngIf="registrationForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</p>
+          </div>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            [disabled]="registrationForm.invalid"
+            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white custom-gradient hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+            [ngClass]="{'opacity-50 cursor-not-allowed': registrationForm.invalid, 'cursor-allowed': !registrationForm.invalid}">
+            Register
+          </button>
+        </div>
+        <p class='text-center text-sm text-slate-700 mt-6'>
+            Already have an account? 
+            <a
+                class='font-semibold underline hover:text-black'
+                routerLink="/login">
+                    <span class='text-btnColor'> Login</span>
+            </a>
+        </p>
+      </form>
+    </div>
+  </div>

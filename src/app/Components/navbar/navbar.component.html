@@ -1,0 +1,65 @@
+<nav class="custom-gradient shadow-md p-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center flex-wrap">
+      <div class="flex items-center flex-shrink-0 text-gray-800 mr-6">
+        <a routerLink="/" class="font-extrabold text-2xl tracking-tight text-white">Linklytics</a>
+      </div>
+  
+      <div class="block lg:hidden">
+        <button
+          (click)="toggleMenu()"
+          class="flex items-center px-3 py-2 border rounded text-indigo-500 border-indigo-400 hover:text-indigo-700 hover:border-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          aria-label="Toggle navigation"
+        >
+          <svg *ngIf="!session"
+            class="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+          <svg *ngIf="session" 
+          class=" text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <title>Menu</title>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+          </svg>
+          
+        </button>
+      </div>
+  
+      <div
+        [class.hidden]="!isOpen"
+        class="w-full block flex-grow lg:flex lg:items-center lg:w-auto transition-all duration-300 ease-in-out "
+      >
+        <div class="text-sm lg:flex-grow lg:flex lg:justify-end">
+          <a
+            routerLink="/landingpage" routerLinkActive="active"
+            class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-indigo-600 mr-4 p-2 rounded-md transition-colors duration-200" 
+          >
+            Home
+          </a>
+          <a
+            routerLink="/about" routerLinkActive="active"
+            class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-indigo-600 mr-4 p-2 rounded-md transition-colors duration-200" 
+          >
+            About
+          </a>
+        </div>
+        <div>
+          <button (click)="registerPage()" *ngIf="(isLoggedOut)"
+            class="inline-block text-sm px-6 py-2 leading-none border rounded-full text-white border-indigo-600 hover:bg-indigo-700 hover:border-indigo-700 mt-4 lg:mt-0 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" style="cursor: pointer; background-color: rgb(235, 33, 33);"
+          >
+            Sign Up
+          </button>
+        </div>
+        <div>
+          <button (click)="logout()" *ngIf="loggedIn"
+            class="inline-block text-sm px-6 py-2 leading-none border rounded-full text-white border-indigo-600 hover:bg-indigo-700 hover:border-indigo-700 mt-4 lg:mt-0 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" style="cursor: pointer; background-color: rgb(235, 33, 33);"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
